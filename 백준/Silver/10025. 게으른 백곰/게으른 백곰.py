@@ -1,3 +1,7 @@
+import sys
+
+input =sys.stdin.readline
+
 N, K = map(int, input().split())
 ice = [0] * 1000001
 l = 0
