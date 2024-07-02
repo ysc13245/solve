@@ -1,14 +1,11 @@
-import sys
+from collections import defaultdict
 
-input = sys.stdin.readline
-
-cards = [0] * 20000001
+cards = defaultdict(int)
 
 input()
-a = list(map(lambda x: int(x) + 10000000, input().split()))
-for x in a:
+for x in input().split():
     cards[x] += 1
 
 input()
-b = list(map(lambda x: int(x) + 10000000, input().split()))
-print(*[cards[x] for x in b])
+
+print(*[cards[x] for x in input().split()])
