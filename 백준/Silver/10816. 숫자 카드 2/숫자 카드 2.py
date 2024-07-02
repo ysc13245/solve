@@ -8,4 +8,4 @@ for x in input().split():
 
 input()
 
-print(*[cards[x] for x in input().split()])
+print(" ".join(str(cards[x]) for x in input().split()))
