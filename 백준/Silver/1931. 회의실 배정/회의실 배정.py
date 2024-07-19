@@ -1,4 +1,7 @@
 def solution():
+    import sys
+    
+    input = sys.stdin.readline
     schedule=[]
     for _ in range(int(input())):
         schedule.append(list(map(int,input().split())))
