@@ -3,8 +3,8 @@ def solution():
     
     input = sys.stdin.readline
     schedule=[]
-    for _ in range(int(input())):
-        schedule.append(list(map(int,input().split())))
+    
+    schedule = [list(map(int, input().split())) for _ in range(int(input()))]
     schedule.sort(key=lambda x: (x[1], x[0]))
     t = 0
     cnt = 1
@@ -12,6 +12,6 @@ def solution():
         if schedule[t][1] <= x[0]:
             cnt += 1
             t = i+1
-    print(cnt)
-solution()
+    return cnt
+print(solution())
  
