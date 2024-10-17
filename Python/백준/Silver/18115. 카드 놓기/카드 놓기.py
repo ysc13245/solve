@@ -8,12 +8,12 @@ techs = list(map(int, input().split()))[::-1]
 for i, card in enumerate(table):
     match techs[i]:
         case 1:
-            hand.append(card)
-        case 2:
-            temp = hand.pop()
-            hand.append(card)
-            hand.append(temp)
-        case 3:
             hand.appendleft(card)
-print(*list(hand)[::-1])
-
+        case 2:
+            # temp = hand.pop()
+            # hand.append(card)
+            # hand.append(temp)
+            hand.insert(1, card)
+        case 3:
+            hand.append(card)
+print(*hand)
