@@ -8,5 +8,6 @@ def is_prime(n):
 import math
 
 input()
-n = math.prod({i for i in map(int, input().split()) if is_prime(i)})
+
+n = math.prod({i for i in map(int, set(input().split())) if is_prime(i)})
 print(n if n != 1 else -1)
