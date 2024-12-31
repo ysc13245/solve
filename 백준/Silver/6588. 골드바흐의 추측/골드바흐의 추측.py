@@ -14,7 +14,6 @@ for n in lis:
         if seq[n - pn]:
             answer.append(f"{n} = {pn} + {n - pn}")
             break
-    else:
-        answer.append("Goldbach's conjecture is wrong.")
+
 
 print("\n".join(answer))
