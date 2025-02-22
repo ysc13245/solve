@@ -1,16 +1,16 @@
+from collections import deque
+
+
 n = int(input())
 lis = list(map(int, input().split()))
 
-i = 0
-answer = [1]
+deque = deque([[i + 1, lis[i]] for i in range(len(lis))])
+answer = []
 
-for _ in range(n - 1):
-    q = lis[i % n]
-    lis[i % n] = 0
-    for _ in range(abs(q)):
-        i += 1 if q > 0 else -1
-        while not lis[i % n]:
-            i += 1 if q > 0 else -1
-    answer.append(i % n + 1)
+while deque:
+    idx, num = deque.popleft()
+    answer.append(idx)
+    if deque:
+        deque.rotate(-(num-1) if num > 0 else -num)
 
 print(*answer)
