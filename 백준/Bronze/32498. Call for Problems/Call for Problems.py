@@ -1,0 +1,1 @@
+print(sum(1 for n in map(int, open(0).readlines()[1:]) if n % 2))
