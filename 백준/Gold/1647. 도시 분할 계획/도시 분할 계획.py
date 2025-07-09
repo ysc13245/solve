@@ -1,3 +1,4 @@
+from calendar import c
 import sys
 
 input = sys.stdin.readline
@@ -33,14 +34,14 @@ def union(x, y):
     return True
 
 
-graph = sorted([list(map(int, input().split())) for _ in range(m)], key=lambda x: x[2])
+graph = sorted([list(map(int, input().split())) for _ in range(m)], key=lambda x: x[2], reverse=True)
 summed = cnt = highest = 0
 
-for a, b, c in graph:
+while cnt < n - 1:
+    a, b, c = graph.pop()
     if union(a, b):
-        highest = max(highest, c)
         summed += c
         cnt += 1
-        import sys
+        highest = c
 
 print(summed - highest)
