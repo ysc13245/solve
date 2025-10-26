@@ -1,0 +1,17 @@
+-- 코드를 입력하세요
+WITH review_counts AS (
+SELECT MEMBER_ID, COUNT(*) AS cnt
+FROM REST_REVIEW
+GROUP BY MEMBER_ID
+),
+max_count AS (
+    SELECT MAX(cnt) AS max_cnt FROM review_counts
+)
+
+SELECT p.MEMBER_NAME, r.REVIEW_TEXT,
+DATE_FORMAT(r.REVIEW_DATE, '%Y-%m-%d') REVIEW_DATE
+FROM REST_REVIEW r
+JOIN MEMBER_PROFILE p ON r.MEMBER_ID = p.MEMBER_ID
+JOIN review_counts c ON r.MEMBER_ID = c.MEMBER_ID
+JOIN max_count m ON c.cnt = m.max_cnt
+ORDER BY REVIEW_DATE, REVIEW_TEXT
